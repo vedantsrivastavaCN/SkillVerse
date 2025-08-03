@@ -1,0 +1,38 @@
+{
+  "name": "Skill Verse",
+  "short_name": "SkillVerse",
+  "description": "An Ed Tech Web App for Students and Instructors",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#001B22",
+  "theme_color": "#001B22",
+  "icons": [
+    {
+      "src": "maskable.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "logo384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
