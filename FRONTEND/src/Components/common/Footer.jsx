@@ -25,9 +25,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SV</span>
-              </div>
+              <img src="/logo.png" alt="SkillVerse Icon" className="w-10 h-10 object-contain" />
               <span className="text-xl font-bold">SkillVerse</span>
             </div>
             <p className="text-gray-400 mb-4">
