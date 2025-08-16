@@ -45,8 +45,8 @@ const TimelineSection = () => {
                             </div>
 
                             <div>
-                                <h2 className='font-semibold text-[18px] text-white'>{element.heading}</h2>
-                                <p className='text-base text-richblack-300'>{element.Description}</p>
+                                <h2 className='font-semibold text-[18px] dark:text-white text-gray-900'>{element.heading}</h2>
+                                <p className='text-base dark:text-richblack-300 text-gray-600'>{element.Description}</p>
                             </div>
 
                         </div>

@@ -39,12 +39,12 @@ const ResetPassword = () => {
             {
                 loading?(<div className="custom-loader"></div>):
                 (<div className='max-w-[500px] p-4 lg:p-8 '>
-                    <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5'>
+                    <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] dark:text-richblack-5 text-gray-900'>
                         {
                             !resetComplete?("Choose  new password"):"Reset complete!"
                         }
                     </h1>
-                    <p className='my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100'>
+                    <p className='my-4 text-[1.125rem] leading-[1.625rem] dark:text-richblack-100 text-gray-600'>
                         {
                             !resetComplete?("Almost done. Enter your new password and youre all set."):(`All done! We have sent an email to ${"nn"} to confirm`)
                         }
@@ -54,7 +54,7 @@ const ResetPassword = () => {
                             !resetComplete && (
                                 <div >
                                 <div className=' relative mt-4'>
-                                    <label className="w-full"><p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">New Password <sup className="text-pink-200">*</sup></p>
+                                    <label className="w-full"><p className="mb-1 text-[0.875rem] leading-[1.375rem] dark:text-richblack-5 text-gray-900">New Password <sup className="text-pink-200">*</sup></p>
                                     <input
                                        required
                                        type={showPassword ? "text" : "password"}
@@ -65,7 +65,7 @@ const ResetPassword = () => {
                                        style={{
                                          boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                                        }}
-                                       className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
+                                       className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 dark:text-richblack-5 text-gray-900"
                                      /></label>
                                      <span
                                        onClick={() => setShowPassword((prev) => !prev)}
@@ -79,7 +79,7 @@ const ResetPassword = () => {
                                      </span>
                                 </div>
                                 <div className=' relative mt-4'>
-                                    <label className="w-full"><p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">Confirm New Password <sup className="text-pink-200">*</sup></p>
+                                    <label className="w-full"><p className="mb-1 text-[0.875rem] leading-[1.375rem] dark:text-richblack-5 text-gray-900">Confirm New Password <sup className="text-pink-200">*</sup></p>
                                     <input
                                        required
                                        type={showConfirmPassword ? "text" : "password"}
@@ -90,7 +90,7 @@ const ResetPassword = () => {
                                        style={{
                                          boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)",
                                        }}
-                                       className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
+                                       className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 dark:text-richblack-5 text-gray-900"
                                      /></label>
                                      <span
                                        onClick={() => setShowConfirmPassword((prev) => !prev)}
@@ -120,7 +120,7 @@ const ResetPassword = () => {
 
                     <div className='mt-6 flex items-center justify-between'>
                     <Link to={"/login"}>
-                    <p className="flex items-center gap-x-2 text-richblack-5"><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg> Back To Login</p>
+                    <p className="flex items-center gap-x-2 dark:text-richblack-5 text-gray-900"><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg> Back To Login</p>
                     </Link>
                     </div>
                     </div>

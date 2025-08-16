@@ -26,14 +26,14 @@ const Course_Card = ({course, Height}) => {
                     />
                 </div>
                 <div className='flex flex-col gap-2 px-1 py-3'>
-                    <p className='text-sm md:text-xl text-richblack-5'>{course?.courseName}</p>
-                    <p className='text-[12px] md:text-xl text-richblack-5'>By <span className='text-yellow-50'>{course?.instructor?.firstName} {course?.instructor?.lastName}</span></p>
+                    <p className='text-sm md:text-xl dark:text-richblack-5 text-gray-900'>{course?.courseName}</p>
+                    <p className='text-[12px] md:text-xl dark:text-richblack-5 text-gray-900'>By <span className='dark:text-yellow-50 text-yellow-600'>{course?.instructor?.firstName} {course?.instructor?.lastName}</span></p>
                     <div className='flex gap-x-3'>
-                        <span className='text-yellow-50'>{avgReviewCount || 0}</span>
+                        <span className='dark:text-yellow-50 text-yellow-600'>{avgReviewCount || 0}</span>
                         <RatingStars Review_Count={avgReviewCount} />
-                        <span className=' md:block hidden md:text-xl text-richblack-5'>{course?.ratingAndReviews?.length} Ratings</span>
+                        <span className=' md:block hidden md:text-xl dark:text-richblack-5 text-gray-900'>{course?.ratingAndReviews?.length} Ratings</span>
                     </div>
-                    <p className='text-sm md:text-xl text-richblack-5'>Rs. {course?.price}</p>
+                    <p className='text-sm md:text-xl dark:text-richblack-5 text-gray-900'>Rs. {course?.price}</p>
                 </div>
             </div>
         </Link>

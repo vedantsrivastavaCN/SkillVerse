@@ -24,12 +24,12 @@ function Login() {
 
         </div>
         <div className=" gap-y-2 flex flex-col">
-        <p className="text-2xl font-extrabold text-richblack-5 flex items-center">Take a Demo &nbsp; <BsLightningChargeFill size={20}/></p>
+        <p className="text-2xl font-extrabold dark:text-richblack-5 text-gray-900 flex items-center">Take a Demo &nbsp; <BsLightningChargeFill size={20}/></p>
         <div>
         <button onClick={
           () => {
-            dispatch(login("kumarhimanshusangwan@gmail.com", "12345", navigate)
-          )}
+            dispatch(login("kumarhimanshusangwan@gmail.com", "12345", navigate))
+          }
         } className="bg-yellow-100 font-semibold mt-4 mb-1 text-richblack-900 px-4 py-2 rounded-md flex">
           <TbCornerDownRightDouble className="text-2xl text-richblack-900 hidden md:block"/>
           Click here for Instructor Demo</button>
@@ -37,8 +37,8 @@ function Login() {
       <div>
         <button onClick={
           () => {
-            dispatch(login("1234@gmail.com", "12345", navigate)
-          )}
+            dispatch(login("1234@gmail.com", "12345", navigate))
+          }
         } className="bg-yellow-100 font-semibold text-richblack-900 px-4 py-2 rounded-md flex">
           <TbCornerDownRightDouble className="text-2xl text-richblack-900 md:block hidden"/>
           Click here for Student Demo</button>

@@ -16,7 +16,8 @@ const VerifyOtp = () => {
 
         if(!signupData){
             navigate('/signup');
-        }},[])
+        }
+    },[signupData, navigate])
 
 
 
@@ -40,8 +41,8 @@ const VerifyOtp = () => {
     <div>
        <div className='min-h-[calc(100vh-3.5rem)] grid place-items-center'>
         <div className='max-w-[500px] p-4 lg:p-8'>
-        <h1 className="text-richblack-5 font-semibold text-[1.875rem] leading-[2.375rem]">Verify Email</h1>
-        <p className="text-[1.125rem] leading-[1.625rem] my-4 text-richblack-100">A verification code has been sent to you. Enter the code below</p>
+        <h1 className="dark:text-richblack-5 text-gray-900 font-semibold text-[1.875rem] leading-[2.375rem]">Verify Email</h1>
+        <p className="text-[1.125rem] leading-[1.625rem] my-4 dark:text-richblack-100 text-gray-600">A verification code has been sent to you. Enter the code below</p>
         <form onSubmit={handleOnSubmit}>
                 <OTPInput
                     value={otp}

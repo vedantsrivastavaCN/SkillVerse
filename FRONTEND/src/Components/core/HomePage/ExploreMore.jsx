@@ -31,12 +31,12 @@ const ExploreMore = () => {
   return (
     <div className=''>
 
-      <div className='text-3xl font-semibold text-center lg:text-4xl text-white'>
+      <div className='text-3xl font-semibold text-center lg:text-4xl dark:text-white text-gray-900'>
         Unlock the 
         <HighlightText text={"Power of Code"} />
       </div>
 
-      <p className='text-center text-richblack-300 text-sm text-[16px] mt-3'>
+      <p className='text-center dark:text-richblack-300 text-gray-600 text-sm text-[16px] mt-3'>
         Learn to build anything you can imagine
       </p>  
 

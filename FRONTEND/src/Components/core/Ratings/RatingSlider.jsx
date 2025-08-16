@@ -82,15 +82,15 @@ const RatingSlider = () => {
                     {
                         Reviews?.map((review, index)=> (
                             <SwiperSlide key={index}>
-                                <div className='flex flex-col gap-3 min-h-[150px] bg-richblack-800 p-3 text-[14px] text-richblack-25'>
+                                <div className='flex flex-col gap-3 min-h-[150px] bg-richblack-800 p-3 text-[14px] dark:text-richblack-25 text-gray-300'>
                                     <div className='flex items-center gap-4'>
                                         <img src={review?.user?.image} alt="user" className='h-9 w-9 rounded-full object-cover' />
                                         <div className='flex flex-col'>
-                                            <h3 className='font-semibold text-richblack-5'>{review?.user?.firstName} {review?.user.lastName}</h3>
-                                            <p className='text-[12px] font-medium text-richblack-500'>{review?.course?.courseName}</p>
+                                            <h3 className='font-semibold dark:text-richblack-5 text-gray-900'>{review?.user?.firstName} {review?.user.lastName}</h3>
+                                            <p className='text-[12px] font-medium dark:text-richblack-500 text-gray-600'>{review?.course?.courseName}</p>
                                         </div>
                                     </div>
-                                    <div className='font-medium text-richblack-25'>{review?.review.slice(0,70)}...</div>
+                                    <div className='font-medium dark:text-richblack-25 text-gray-300'>{review?.review.slice(0,70)}...</div>
                                     <RatingStars Review_Count={review?.rating} />
                                 </div>
                             </SwiperSlide>

@@ -20,12 +20,12 @@ const {loading}= useSelector((state)=>state.auth)
             {
                 loading?(<div class="custom-loader"></div>):
                 (<div className='max-w-[500px] p-4 lg:p-8'>
-                    <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5'>
+                    <h1 className='text-[1.875rem] font-semibold leading-[2.375rem] dark:text-richblack-5 text-gray-900'>
                         {
                             !emailSent?("Reset your password"):"Check email"
                         }
                     </h1>
-                    <p className='my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100'>
+                    <p className='my-4 text-[1.125rem] leading-[1.625rem] dark:text-richblack-100 text-gray-600'>
                         {
                             !emailSent?("Have no fear. We'll email you instructions to reset your password. If you dont have access to your email we can try account recovery"):(`We have sent the reset email to ${email}`)
                         }
@@ -33,8 +33,8 @@ const {loading}= useSelector((state)=>state.auth)
                     <form onSubmit={handleOnSubmit}>
                         {
                             !emailSent && (
-                                <label class="w-full"><p class="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">Email Address <sup class="text-pink-200">*</sup></p>
-                                <input required="" type="email" name="email" placeholder="Enter email address" value={email} onChange={(e)=>setemail(e.target.value)} className="rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] text-richblack-5 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none w-full"></input>
+                                <label class="w-full"><p class="mb-1 text-[0.875rem] leading-[1.375rem] dark:text-richblack-5 text-gray-900">Email Address <sup class="text-pink-200">*</sup></p>
+                                <input required="" type="email" name="email" placeholder="Enter email address" value={email} onChange={(e)=>setemail(e.target.value)} className="rounded-lg bg-richblack-700 p-3 text-[16px] leading-[24px] dark:text-richblack-5 text-gray-900 shadow-[0_1px_0_0] shadow-white/50 placeholder:text-richblack-400 focus:outline-none w-full"></input>
                                 </label>
                             )
                         }
@@ -44,7 +44,7 @@ const {loading}= useSelector((state)=>state.auth)
                     </form> 
                     <div className='mt-6 flex items-center justify-between'>
                     <Link to={"/login"}>
-                    <p class="flex items-center gap-x-2 text-richblack-5"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg> Back To Login</p>
+                    <p class="flex items-center gap-x-2 dark:text-richblack-5 text-gray-900"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg> Back To Login</p>
                     </Link>
                     </div>
                     </div>

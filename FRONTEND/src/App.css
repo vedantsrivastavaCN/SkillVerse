@@ -186,11 +186,7 @@ filter: drop-shadow(20px 20px 0px  rgb(255, 255, 255));
 }
 
 .section_heading {
-  --tw-text-opacity: 1;
-  color: rgb(241 242 255/var(--tw-text-opacity));
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 2rem;
+  @apply text-gray-900 dark:text-richblack-5 text-xl md:text-3xl font-bold;
 }
 
 
