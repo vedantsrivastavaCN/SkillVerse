@@ -10,13 +10,13 @@ const CourseCard = ({cardData,currentCard,setCurrentCard}) => {
   <p className={` text-xl font-bold text-left mb-2 ${currentCard===cardData.heading?"text-black":"text-richblue-5 "}`}>
     {cardData.heading}
   </p>
-  <p className=" text-left mb-6 text-base ">
+  <p className={` text-left mb-6 text-base ${currentCard===cardData.heading?"text-richblack-700":"text-richblack-300"}`}>
     {cardData.description}
   </p>
 </div>
 <div className=' flex justify-between w-full p-3'>
-  <p>{cardData.level}</p>
-  <p>{cardData.lessionNumber} Lessons</p>
+  <p className={`${currentCard===cardData.heading?"text-richblack-700":"text-richblack-300"}`}>{cardData.level}</p>
+  <p className={`${currentCard===cardData.heading?"text-richblack-700":"text-richblack-300"}`}>{cardData.lessionNumber} Lessons</p>
   </div>
 </button>
     </div>

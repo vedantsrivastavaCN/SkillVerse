@@ -31,7 +31,7 @@ const ExploreMore = () => {
   return (
     <div className=''>
 
-      <div className='text-3xl font-semibold text-center lg:text-4xl'>
+      <div className='text-3xl font-semibold text-center lg:text-4xl text-white'>
         Unlock the 
         <HighlightText text={"Power of Code"} />
       </div>

@@ -42,7 +42,7 @@ function Home() {
             <Link onClick={()=>{dispatch(setProgress(100))}}  to={"/signup"}>
             <div className=' group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold transition-all duration-200 hover: scale-95 w-fit max-w-maxContent'>
                 <div className='flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900'>
-              <p>Become an Instructor</p><FaArrowRight/>
+              <p className='text-richblack-300'>Become an Instructor</p><FaArrowRight/>
                 </div>
             </div>
             </Link>
@@ -187,13 +187,13 @@ function Home() {
             <div className='mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7'>
 
                 <div className='flex flex-row gap-5 mb-10 mt-[95px]'>
-                    <div className='text-4xl font-semibold w-[45%]'>
+                    <div className='text-4xl font-semibold w-[45%] text-white'>
                         Get the Skills you need for a
                         <HighlightText text={"Job that is in demand"} />
                     </div>
 
                     <div className='flex flex-col gap-10 w-[40%] items-start'>
-                    <div className='text-[16px]'>
+                    <div className='text-[16px] text-richblack-300'>
                     The modern SkillVerse is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
                     </div>
                     <CTAButton active={true} linkto={"/signup"}>
