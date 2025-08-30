@@ -81,13 +81,13 @@ graph TB
     
     G -->|JSON Responses| C
     
-    style A fill:#e1f5fe
-    style B fill:#e8f5e8
-    style G fill:#fff3e0
-    style M fill:#fce4ec
-    style N fill:#f3e5f5
-    style O fill:#e0f2f1
-    style P fill:#fff8e1
+    style A fill:#1e3a8a
+    style B fill:#1e40af
+    style G fill:#7c3aed
+    style M fill:#9333ea
+    style N fill:#7c2d12
+    style O fill:#1e40af
+    style P fill:#7c3aed
 ```
 
 This architecture shows the complete data flow from frontend to backend and external services. The system follows a layered architecture with clear separation of concerns.
@@ -372,16 +372,16 @@ flowchart TD
     
     AH --> AI[Re-render Course Builder]
     
-    style A fill:#e1f5fe
-    style C fill:#fff3e0
-    style E fill:#e8f5e8
-    style Q fill:#fce4ec
-    style V fill:#f3e5f5
-    style W fill:#f3e5f5
-    style X fill:#f3e5f5
-    style Y fill:#f3e5f5
-    style Z fill:#f3e5f5
-    style AA fill:#ffebee
+    style A fill:#1e3a8a
+    style C fill:#7c3aed
+    style E fill:#1e40af
+    style Q fill:#9333ea
+    style V fill:#7c2d12
+    style W fill:#7c2d12
+    style X fill:#7c2d12
+    style Y fill:#7c2d12
+    style Z fill:#7c2d12
+    style AA fill:#dc2626
 ```
 
 ---
@@ -505,14 +505,14 @@ flowchart TD
     
     CC --> DD[Success Navigate to Course Viewer and Clear Cart]
     
-    style A fill:#e1f5fe
-    style J fill:#fff3e0
-    style L fill:#e8f5e8
-    style M fill:#c8e6c9
-    style O fill:#fce4ec
-    style T fill:#f3e5f5
-    style V fill:#ffebee
-    style CC fill:#e0f2f1
+    style A fill:#1e3a8a
+    style J fill:#7c3aed
+    style L fill:#1e40af
+    style M fill:#059669
+    style O fill:#9333ea
+    style T fill:#7c2d12
+    style V fill:#dc2626
+    style CC fill:#0d9488
 ```
 
 ---
@@ -974,12 +974,12 @@ flowchart TD
     T --> FF[Show Success Toast]
     T --> GG[Refresh Course Page]
     
-    style A fill:#e1f5fe
-    style C fill:#fff3e0
-    style I fill:#e8f5e8
-    style Q fill:#fce4ec
-    style D fill:#f3e5f5
-    style Z fill:#e0f2f1
+    style A fill:#1e3a8a
+    style C fill:#7c3aed
+    style I fill:#1e40af
+    style Q fill:#9333ea
+    style D fill:#7c2d12
+    style Z fill:#0d9488
 ```
 
 ### Rating Data Flow
