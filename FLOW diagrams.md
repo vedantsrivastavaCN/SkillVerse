@@ -1,4 +1,4 @@
-# StudyNotion Flow Diagrams
+# SkillVerse Flow Diagrams
 
 This document contains comprehensive flow diagrams for the StudyNotion application, showing system architecture and detailed feature flows with API routes and data flow.
 
