@@ -10,8 +10,9 @@ exports.createRating = async (req,res)=>{
     const courseDetails= await Course.find({_id: courseId,
      studentsEnrolled: {$elemMatch:{$eq:userId}}});
  
-     if(!courseDetails){
-         return res.status(404).json({success:false,emessage: "Student not enrolled in course"});
+     // Fix: Course.find() returns an array, need to check length
+     if(!courseDetails || courseDetails.length === 0){
+         return res.status(404).json({success:false,message: "Student not enrolled in course"});
      };
      const alreadyReviewed =await RatingAndReview.findOne({user:userId,
      course:courseId});
@@ -99,11 +100,23 @@ exports.getAllRating = async (req,res) => {
             .populate({path: "course",
             select: "courseName"})
             .exec();
+        
+        // Check if reviews exist and filter out any with missing user/course data
+        if (!allReviews || allReviews.length === 0) {
+            return res.status(200).json({
+                success: true,
+                message:"No reviews found",
+                data:[],
+            });
+        }
+        
+        // Filter out reviews where user or course data is missing
+        const validReviews = allReviews.filter(review => review.user && review.course);
             
         return res.status(200).json({
             success: true,
             message:"all reviews fetched successfully",
-            data:allReviews,
+            data:validReviews,
         });
     } catch (error) {
         console.log(error);
