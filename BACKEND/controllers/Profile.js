@@ -10,7 +10,19 @@ exports.updateProfile = async (req, res) => {
 
 		// Find the profile by id
 		const userDetails = await User.findById(id);
+		if (!userDetails) {
+			return res.status(404).json({
+				success: false,
+				message: "User not found",
+			});
+		}
 		const profile = await Profile.findById(userDetails.additionalDetails);
+		if (!profile) {
+			return res.status(404).json({
+				success: false,
+				message: "Profile not found",
+			});
+		}
 
 		// Update the profile fields
 		userDetails.firstName = firstName || userDetails.firstName;
@@ -77,6 +89,12 @@ exports.getAllUserDetails = async (req, res) => {
 		const userDetails = await User.findById(id)
 			.populate("additionalDetails")
 			.exec();
+		if (!userDetails) {
+			return res.status(404).json({
+				success: false,
+				message: "User not found",
+			});
+		}
 		console.log(userDetails);
 		res.status(200).json({
 			success: true,
@@ -108,6 +126,12 @@ exports.getEnrolledCourses=async (req,res) => {
 			}
 		}
 		).populate("courseProgress").exec();
+		if (!enrolledCourses) {
+            return res.status(404).json({
+                success: false,
+                message: "User enrollment data not found",
+            });
+        }
         // console.log(enrolledCourses);
         res.status(200).json({
             success: true,
@@ -132,6 +156,12 @@ exports.updateDisplayPicture = async (req, res) => {
 		return res.status(404).json({
             success: false,
             message: "User not found",
+        });
+	}
+	if (!req.files || !req.files.pfp) {
+		return res.status(400).json({
+            success: false,
+            message: "No image file provided",
         });
 	}
 	const image = req.files.pfp;
@@ -172,6 +202,12 @@ exports.instructorDashboard = async (req, res) => {
 	try {
 		const id = req.user.id;
 		const courseData = await Course.find({instructor:id});
+		if (!courseData) {
+			return res.status(404).json({
+				success: false,
+				message: "No courses found for this instructor",
+			});
+		}
 		const courseDetails = courseData.map((course) => {
 			totalStudents = course?.studentsEnrolled?.length;
 			totalRevenue = course?.price * totalStudents;
