@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-const { Sentry } = require("./instrument"); // Initialize Sentry before anything else and access handlers
-=======
->>>>>>> 987e8450bb5840f6bbcc9ac5d1d9b9ffb342e029
+const { Sentry } = require("./instrument"); // Initialize Sentry before anything else
 const express = require("express");
 
 const app = express();
@@ -54,43 +51,34 @@ app.use("/api/v1/course", CourseRoutes);
 
 app.use("/api/v1/contact", require("./routes/ContactUs"));
 
-<<<<<<< HEAD
 // Webhooks
 app.use("/webhook", require("./routes/Webhook"));
 
-=======
->>>>>>> 987e8450bb5840f6bbcc9ac5d1d9b9ffb342e029
 app.get("/", (req, res) => {
   res.status(200).json({
     message: "Welcome to the API",
   });
 });
 
-<<<<<<< HEAD
-// ------------------------------------------------------------
-// Sentry Test
-// Simple test route to create a Sentry issue without crashing the app
+// Sentry test route (optional - remove in production if not needed)
 app.get("/test-sentry", (req, res) => {
   Sentry.captureException(new Error("Manual Sentry test issue"));
   res.status(200).json({ sentry: true });
 });
 
-// Fallback error middleware to ensure consistent error responses
+// Fallback error middleware for consistent error responses
 app.use((err, req, res, next) => {
   if (res.headersSent) {
     return next(err);
   }
+  Sentry.captureException(err);
   const status = err.status || 500;
   res.status(status).json({
     success: false,
     message: err.message || "Internal Server Error",
   });
 });
-// ------------------------------------------------------------
-// Sentry Test End
 
-=======
->>>>>>> 987e8450bb5840f6bbcc9ac5d1d9b9ffb342e029
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -6,10 +6,7 @@ const otpGenerator = require("otp-generator");
 const mailSender = require("../utils/mailSender");
 const { passwordUpdated } = require("../mail/templates/passwordUpdate");
 const Profile = require("../models/Profile");
-<<<<<<< HEAD
 const { Sentry } = require("../instrument");
-=======
->>>>>>> 987e8450bb5840f6bbcc9ac5d1d9b9ffb342e029
 require("dotenv").config();
 
 // Signup Controller for Registering USers
@@ -156,15 +153,6 @@ exports.login = async (req, res) => {
 			// Save token to user document in database
 			user.token = token;
 			user.password = undefined;
-<<<<<<< HEAD
-			// Try-catch block for Sentry testing
-			try {
-				trackUserLogin(user.id, user.email); // trackUserLogin not implemented yet anywhere so remove this try catch and add a comment to the code that it is not implemented yet
-			} catch (error) {
-				Sentry.captureException(error);
-			}
-=======
->>>>>>> 987e8450bb5840f6bbcc9ac5d1d9b9ffb342e029
 			// Set cookie for token and return success response
 			const options = {
 				expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
@@ -184,6 +172,7 @@ exports.login = async (req, res) => {
 		}
 	} catch (error) {
 		console.error(error);
+		Sentry.captureException(error);
 		// Return 500 Internal Server Error status code with error message
 		return res.status(500).json({
 			success: false,
