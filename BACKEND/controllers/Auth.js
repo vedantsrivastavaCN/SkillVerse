@@ -6,6 +6,7 @@ const otpGenerator = require("otp-generator");
 const mailSender = require("../utils/mailSender");
 const { passwordUpdated } = require("../mail/templates/passwordUpdate");
 const Profile = require("../models/Profile");
+const { Sentry } = require("../instrument");
 require("dotenv").config();
 
 // Signup Controller for Registering USers
@@ -171,6 +172,7 @@ exports.login = async (req, res) => {
 		}
 	} catch (error) {
 		console.error(error);
+		Sentry.captureException(error);
 		// Return 500 Internal Server Error status code with error message
 		return res.status(500).json({
 			success: false,

@@ -1,3 +1,4 @@
+const { Sentry } = require("./instrument"); // Initialize Sentry before anything else
 const express = require("express");
 
 const app = express();
@@ -50,9 +51,31 @@ app.use("/api/v1/course", CourseRoutes);
 
 app.use("/api/v1/contact", require("./routes/ContactUs"));
 
+// Webhooks
+app.use("/webhook", require("./routes/Webhook"));
+
 app.get("/", (req, res) => {
   res.status(200).json({
     message: "Welcome to the API",
+  });
+});
+
+// Sentry test route (optional - remove in production if not needed)
+app.get("/test-sentry", (req, res) => {
+  Sentry.captureException(new Error("Manual Sentry test issue"));
+  res.status(200).json({ sentry: true });
+});
+
+// Fallback error middleware for consistent error responses
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err);
+  }
+  Sentry.captureException(err);
+  const status = err.status || 500;
+  res.status(status).json({
+    success: false,
+    message: err.message || "Internal Server Error",
   });
 });
 
