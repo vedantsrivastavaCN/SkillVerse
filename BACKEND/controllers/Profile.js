@@ -10,7 +10,20 @@ exports.updateProfile = async (req, res) => {
 
 		// Find the profile by id
 		const userDetails = await User.findById(id);
+		if (!userDetails) {
+			return res.status(404).json({
+				success: false,
+				message: "User not found",
+			});
+		}
+		
 		const profile = await Profile.findById(userDetails.additionalDetails);
+		if (!profile) {
+			return res.status(404).json({
+				success: false,
+				message: "Profile not found",
+			});
+		}
 
 		// Update the profile fields
 		userDetails.firstName = firstName || userDetails.firstName;
@@ -77,6 +90,15 @@ exports.getAllUserDetails = async (req, res) => {
 		const userDetails = await User.findById(id)
 			.populate("additionalDetails")
 			.exec();
+		
+		// Check if user exists
+		if (!userDetails) {
+			return res.status(404).json({
+				success: false,
+				message: "User not found",
+			});
+		}
+		
 		console.log(userDetails);
 		res.status(200).json({
 			success: true,
@@ -108,6 +130,15 @@ exports.getEnrolledCourses=async (req,res) => {
 			}
 		}
 		).populate("courseProgress").exec();
+		
+		// Additional check after populate
+		if (!enrolledCourses) {
+			return res.status(404).json({
+				success: false,
+				message: "User enrollment data not found",
+			});
+		}
+		
         // console.log(enrolledCourses);
         res.status(200).json({
             success: true,
@@ -172,13 +203,23 @@ exports.instructorDashboard = async (req, res) => {
 	try {
 		const id = req.user.id;
 		const courseData = await Course.find({instructor:id});
+		
+		// Check if course data exists
+		if (!courseData || courseData.length === 0) {
+			return res.status(200).json({
+				success: true,
+				message: "No courses found for this instructor",
+				data: [],
+			});
+		}
+		
 		const courseDetails = courseData.map((course) => {
-			totalStudents = course?.studentsEnrolled?.length;
-			totalRevenue = course?.price * totalStudents;
+			totalStudents = course?.studentsEnrolled?.length || 0;
+			totalRevenue = (course?.price || 0) * totalStudents;
 			const courseStats = {
 				_id: course._id,
-				courseName: course.courseName,
-				courseDescription: course.courseDescription,
+				courseName: course.courseName || "Untitled Course",
+				courseDescription: course.courseDescription || "",
 				totalStudents,
 				totalRevenue,
 			};
